@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>My first Vueapp</title>
+     <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<!-- 
+     ◉Vueオブジェクト
+     var 変数 =new Vue(--オブジェクト--)
+
+     引数のオブジェクト
+     {
+          el = 対象(id名),
+          data = {設定するデータの値}
+     }
+-->
+     <h1>Vue.js</h1>
+     <div id="app">
+          {{message}}
+     </div>
+
+     <hr>
+     <!-- 入力テキストをリアルタイムで表示 -->
+     <input type="text" onInput="doAction(event);">
+     <!-- onInput 入力されると発火 -->
+
+     <!-- <button onclick="doAction();">Click</button> -->
+     <!-- クリックすると発火 -->
+
+     <script>
+          var data = {
+               message: 'Please Type!'
+          };
+
+          var app = new Vue({
+               el: '#app',
+               data: data
+          });
+
+          function doAction(event) {
+               data.message = event.target.value;
+          }
+     </script>
+</body>
+</html>
