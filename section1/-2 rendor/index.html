@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>My first Vueapp</title>
+     <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<!-- 
+     ◉rendorプロパティ
+      レンダリング：用意されたデータを元に実際の画面表示する処理
+
+     render: (element) =>{--描画処理--}
+
+     render : (element) => {
+          return element("タグ名",{"属性情報”},表示する値)
+     }
+
+     ■子ノードの組み込み
+          return element("タグ名",{"属性情報”},[vNode,vNode,...])
+-->
+     <h1>Vue.js</h1>
+     <div id="app">
+          {{message}}
+     </div>
+
+     <hr>
+     <button onClick="doAction(event);">Click</button>
+
+     <script>
+          var data = {
+               message: 'Hello Vue!'
+          };
+
+          var app = new Vue({
+               el: '#app',
+               data: data,
+               render: (element) => {
+                    return element("ol",
+                         [
+                              element('li','item1'),
+                              element('li','item2'),
+                              element('li','item3')
+                         ]
+                    );
+               }
+               // render: (element) => {
+               //      return element("p",{"style":"font-size: 20pt; color:red;"},data.message);
+               // }
+          });
+
+          function doAction() {
+               data.message = "You Changed";
+          }
+     </script>
+</body>
+</html>
