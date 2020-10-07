@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>My first Vueapp</title>
+     <script src="https://unpkg.com/vue"></script>
+     <style>
+          .red {
+               font-size: 20pt;
+               font-weight: bold;
+               font-style: normal;
+               color: red;
+          }
+          .blue {
+               font-size: 20pt;
+               font-weight: plain;
+               font-style: italic;
+               color: blue;
+          }
+     </style>
+</head>
+<body>
+<!-- 
+     ◉template テンプレート構文
+     ■v-htmlでHTMLを出力
+          <p v-html="message">
+     ■v-bind タグの属性に値に変数を設定
+     v-bind:属性名 = "設定する値"
+-->
+     <h1>Vue.js</h1>
+     <div id="app">
+          <!-- <p v-html="message"></p> -->
+          <!-- <ol v-html="messages"></ol> -->
+          <!-- <p v-bind:style="style">{{message}}</p> -->
+          <p v-bind:class="{red: isRed, blue: isBlue}">{{message}}</p>
+     </div>
+     <hr>
+     <!-- <input type="text" onInput="doInput(event);">-->
+     <button onClick="doAction();">Click</button>
+     <!-- <input type="number" onChange="doChange(event);" value="20"> -->
+
+     <script>
+          var data = {
+               message: 'Hello Vue.',
+               // style: "font-size: 20pt; color:red",
+               isRed: true,
+               isBlue: false,
+          };
+
+          var app = new Vue({
+               el: '#app',
+               data: data,
+          });
+
+          function doAction() {
+               data.isRed = !data.isRed;
+               data.isBlue = !data.isBlue;
+          }
+
+          // function doChange(event) {
+          //      data.style = 'font-size:' + event.target.value + 'pt; color:red;'
+          // }
+
+          // function doInput(event) {
+          //      data.message = event.target.value;
+          // }
+
+          // function doAction() {
+          //      data.messages += "<li>" + data.message + '</li>';
+          // }
+     </script>
+</body>
+</html>
