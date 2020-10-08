@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>My first Vueapp</title>
+     <script src="https://unpkg.com/vue"></script>
+     <style>
+          .ok {
+               font-size: 24px;
+               color: blue;
+               padding: 5px 10px;
+               border: 2px solid red;
+          }
+          .ng {
+               font-size: 20px;
+               color: gray;
+          }
+          table tr th {
+               font-size: 16pt;
+               color: white;
+               background-color: blue;
+               padding: 5px 15px;
+          }
+
+          li {
+               font-size: 16px;
+               color: gray;
+          }
+     </style>
+</head>
+<body>
+<!-- 
+     ◉template テンプレート構文
+     ■v-for
+     <タグv-for="変数 in 配列＞
+          表示内容
+     </タグ>
+-->
+     <h1>Vue.js</h1>
+     <div id="app">
+          <template v-if="flag">
+               <p>※テーブルを表示する</p>
+               <table>
+                    <tr>
+                         <th>Name:</th>
+                         <th>Email</th>
+                         <th>tel</th>
+                    </tr>
+                    <tr v-for="item in items">
+                         <td>{{item.name}}</td>
+                         <td>{{item.mail}}</td>
+                         <td>{{item.tel}}</td>
+                    </tr>
+               </table>
+          </template>
+          <!-- <p v-if="flag" class="ok">
+               これは正式な表示です
+          </p>
+          <p v-else class="ng">
+               ※現在、問題が発生中です
+          </p> -->
+          <button onClick="doAction()">Click</button>
+     </div>
+     <hr>
+     
+     <script>
+          var data = {
+               message: 'Hello Vue.',
+               flag: true,
+               items: [
+                    {name:"taro",mail:"taro@yamada",tel:"999-9999"},
+                    {name:"hanako",mail:"hanako@flower",tel:"123-9999"},
+                    {name:"keiko",mail:"keiko@tanaka",tel:"456-9999"},
+               ]
+          };
+
+          var app = new Vue({
+               el: '#app',
+               data: data,
+          });
+
+          function doAction() {
+               data.flag = !data.flag;
+          }
+     </script>
+</body>
+</html>
