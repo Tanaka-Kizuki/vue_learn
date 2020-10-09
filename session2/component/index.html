@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="https://unpkg.com/vue"></script>
+     <style>
+          .hello {
+               font-size: 20pt;
+               font-weight: bold;
+               border: 1px solid magenta;
+               padding: 5px 10px 0px 10px;
+          }
+
+     </style>
+</head>
+<body>
+     <!-- 
+     ■コンポーネント component 
+          ◉コンポーネントの作成
+          Vue.component('名前',{設定情報})
+          ◉コンポーネントの使用
+          <コンポート名/> HTMLに記載
+          ◉変数をコンポーネントに渡す(dataに関数として定義)
+          data: function() {return 変数情報}
+          ◉props: [名前1,名前2,・・・・・・]
+
+     -->
+     <h1>Vue.js</h1>
+     <div id="app">
+          <div><hello name="Taro"/></div>
+          <div><hello name="Hanako"/></div>
+     </div>
+
+     <script>
+          Vue.component('hello',
+          {
+               props:["name"],
+               data: function() {
+                    return {
+                         message: 'これは新しいメッセージです'
+                    };
+               },
+               template: '<p class="hello">hello,{{name}}</p>'
+          });
+
+          var app = new Vue({
+               el: '#app',
+          });
+     </script>
+</body>
+</html>
