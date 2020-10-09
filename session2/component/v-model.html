@@ -17,11 +17,12 @@
 </head>
 <body>
      <!-- 
-     ■component v-bind 
+     ■component v-model
      -->
      <h1>Vue.js</h1>
      <div id="app">
-          <hello v-for="item in data" v-bind:name="item"/>
+          <div><hello v-bind:name="name"/></div>
+          <div><input type="text" v-model="name"></div>
      </div>
 
      <script>
@@ -39,9 +40,7 @@
           var app = new Vue({
                el: '#app',
                data:{
-                    data:[
-                         'taro','hanako','jiro','sachiko'
-                    ]
+                    name:['no-name']
                }
           });
      </script>
