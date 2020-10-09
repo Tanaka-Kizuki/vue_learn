@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="https://unpkg.com/vue"></script>
+     <style>
+          .hello {
+               font-size: 20pt;
+               font-weight: bold;
+               border: 1px solid magenta;
+               padding: 5px 10px 0px 10px;
+          }
+
+     </style>
+</head>
+<body>
+     <!-- 
+     ■component v-bind 
+     -->
+     <h1>Vue.js</h1>
+     <div id="app">
+          <hello v-for="item in data" v-bind:name="item"/>
+     </div>
+
+     <script>
+          var hello = Vue.component('hello',
+          {
+               props:["name"],
+               data: function() {
+                    return {
+                         message: 'これは新しいメッセージです'
+                    };
+               },
+               template: '<p class="hello">hello,{{name}}</p>'
+          });
+
+          var app = new Vue({
+               el: '#app',
+               data:{
+                    data:[
+                         'taro','hanako','jiro','sachiko'
+                    ]
+               }
+          });
+     </script>
+</body>
+</html>
