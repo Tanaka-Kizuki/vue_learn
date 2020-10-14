@@ -4,7 +4,7 @@
     <p>{{$store.state.message}}</p>
     <hr>
     <div class="link"
-     @click="$store.dispatch('doit')">
+     @click="$store.commit('doit')">
       <a>
         Clicked: {{$store.state.counter}}
       </a>
