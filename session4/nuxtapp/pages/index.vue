@@ -3,8 +3,11 @@
     <h1>{{title}}</h1>
     <p>{{$store.state.message}}</p>
     <hr>
-    <div class="link" v-on:click="doAction">
-      <a>Clicked: {{$store.state.counter}}</a>
+    <div class="link"
+     @click="$store.dispatch('doit')">
+      <a>
+        Clicked: {{$store.state.counter}}
+      </a>
     </div>
   </section>
 </template>
